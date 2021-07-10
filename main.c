@@ -167,6 +167,64 @@ if (selection<5){
 }
 }
 int main() {
+    int selection=0;
+    int LinkedListNum=0;
+    int DynamArrayNum=0;
+    struct node *head=NULL;
+    struct node *tail=NULL;
+    struct students *Init=NULL;
     printf("welcome to our code \n");
+    while (selection!=5) {
+        printf("________________MAIN MENU_______________\n");
+        printf("Choose 1 or 2 or 3:\n");
+        printf("1:Insert a new student in an array \n");
+        printf("2:Insert a new student in a linked list\n");
+        printf( "3:print the content of tha array \n");
+        printf("4:print the content of tha linked list\n");
+        printf("5:Clear both of the array and the linked list\n");
+        printf("6:Exit the program\n");
+        printf("\n");
+        scanf_s("%d", &selection);
+
+        switch (selection) {
+            case 1:{
+                Array(&DynamArrayNum, &Init);
+                break;
+
+            }
+            case 2: {
+
+                InsertLinkedList(&LinkedListNum, &head, &tail);
+
+                break;
+            }
+            case 3:{
+                PrintArray(&DynamArrayNum,&Init);
+            }
+            case 4: {
+                printList(&head);
+                break;
+            }
+            case 5:{
+                free(Init);
+                free(head);
+                free(tail);
+                DynamArrayNum=0;
+                LinkedListNum=0;
+                break;
+            }
+            case 6:{
+
+                return 0;
+
+            }
+            default:{
+                printf("Wrong Selection please write a num between 1->6\n");
+                break;
+            }
+        }
+    }
+
+}
     return 0;}
 
